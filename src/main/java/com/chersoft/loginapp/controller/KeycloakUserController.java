@@ -18,6 +18,16 @@ public class KeycloakUserController {
     KeycloakUserService keycloakUserService;
 
     @ResponseBody
+    @GetMapping()
+    public String getStatus() {
+        try {
+            return "Estado ok";
+        } catch (Exception e) {
+            return "Estado error";
+        }
+    }
+
+    @ResponseBody
     @PostMapping("token")
     public ResponseEntity<?> getUserToken(@RequestBody RequestData requestData) {
         try {
